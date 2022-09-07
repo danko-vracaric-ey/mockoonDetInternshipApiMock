@@ -1,0 +1,2732 @@
+{
+  "uuid": "3ea7e41e-b6d4-49cf-b749-d199a95a7f6d",
+  "lastMigration": 22,
+  "name": "DET Internship API.",
+  "endpointPrefix": "api",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "127.0.0.1",
+  "routes": [
+    {
+      "uuid": "2e7f78a4-4e79-4d29-abcb-5ab69deb5162",
+      "documentation": "Add a new applicant",
+      "method": "post",
+      "endpoint": "applicants",
+      "responses": [
+        {
+          "uuid": "c157952a-79e6-4e9d-a981-a27210e4405c",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"title\": [\r\n            \"The title field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Title field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "2106f11c-10c4-4802-a2f5-efea6fa72600",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"title\": [\r\n            \"The selected title is invalid.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The selected title is invalid",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "Dr",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "Mr",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "Miss",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "Mrs",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "title",
+              "value": "Ms",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "3fc08905-6daf-42d3-bceb-7df984a62f22",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"firstName\": [\r\n            \"The first name field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The first name field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "796ef19d-81f5-4923-9d7d-a12e3adba2c4",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"lastName\": [\r\n            \"The last name field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "The last name field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "lastName",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "a0b77a12-0e77-4e04-8bf2-0c01a00c339e",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"dateOfBirth\": [\r\n            \"The date of birth field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The date of birth field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "dateOfBirth",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "f31b443b-dd21-427c-aedb-d74682efbbe8",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"email\": [\r\n            \"The email field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The email field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "email",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "3f0c8a7b-ffaf-4b28-b904-83ddc829f7f0",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"residencyDuration\": [\r\n            \"The residency duration field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The residency duration field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "residencyDuration",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "5bef7914-4fcf-49ba-9319-65c759126d0c",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesHaveAgricultureSkills\": [\r\n            \"The does have agriculture skills field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does have agriculture skills field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesHaveAgricultureSkills",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "6dedb784-bbf9-4590-b7d3-df6f9c1f1404",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesHaveAgricultureSkills\": [\r\n            \"The does have agriculture skills field must be true or false.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does have agriculture skills field must be true or false.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesHaveAgricultureSkills",
+              "value": "true",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "doesHaveAgricultureSkills",
+              "value": "false",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "28a4c99c-fff3-49b9-bb3f-922c010df845",
+          "body": "{\r\n    \"message\": \"SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'agricultureSkills' cannot be null (SQL: insert into `applicants` (`title`, `firstName`, `lastName`, `dateOfBirth`, `email`, `residencyDuration`, `doesHaveAgricultureSkills`, `agricultureSkills`, `doesHaveMetalworkSkills`, `metalworkSkills`, `isConvicted`, `doesFlyAirplane`, `doesDriveCar`, `doesDriveBicycle`, `aid`, `updated_at`, `created_at`) values (Mr, Vujadin, Sretenovic, 1980-12-09, vujadin@some.domain.com, 10, 0, ?, 1, Forging, 1, 1, 1, 1, 6a36a7ebbe5817bfeaaee8c13891b235, 2022-09-05 18:27:56, 2022-09-05 18:27:56))\"\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The agriculture skills cannot be null",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "agricultureSkills",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "98688d53-30b4-46f7-96e5-c8a78d0d923b",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesHaveMetalworkSkills\": [\r\n            \"The does have metalwork skills field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does metalwork skills field must no be empty",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesHaveMetalworkSkills",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "8ddc1894-b470-456a-bfa2-2aeb7fac504e",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesHaveMetalworkSkills\": [\r\n            \"The does have metalwork skills field must be true or false.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does have metalwork skills must be true or false ",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesHaveMetalworkSkills",
+              "value": "true",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "doesHaveMetalworkSkills",
+              "value": "false",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "20aa10bc-9822-46f9-903b-3152f8a8785b",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"metalworkSkills\": [\r\n            \"The metalwork skills field is required when does have metalwork skills is true.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The metalwork skills field is required when does have metalwork skills is true",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesHaveMetalworkSkills",
+              "value": "true",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "metalworkSkills",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "f86e8f96-f547-494a-bad1-54358d727975",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesFlyAirplane\": [\r\n            \"The does fly airplane field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The field does fly airplane must not be empty",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesFlyAirplane",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "b2f447c1-1473-4ace-8c56-bf3b2e447eb6",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesFlyAirplane\": [\r\n            \"The does fly airplane field must be true or false.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does fly airplane field must be true or false",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesFlyAirplane",
+              "value": "true",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "doesFlyAirplane",
+              "value": "false",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "d66e9193-0817-4cfe-9e0b-2b3f9f57ef9d",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesDriveCar\": [\r\n            \"The does drive car field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does drive car field is required.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesDriveCar",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "a2e69c06-b3fa-48e8-b7b1-f61be0335aea",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesDriveCar\": [\r\n            \"The does drive car field must be true or false.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does drive car field must be true or false.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesDriveCar",
+              "value": "true",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "doesDriveCar",
+              "value": "false",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "30bf0c3a-a38d-4d2b-9579-9d62f60860f0",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesDriveBicycle\": [\r\n            \"The does drive bicycle field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does drive bicycle field is required.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesDriveBicycle",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "2a523ed4-3dc7-439f-a4ae-efc3a31fec7b",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"doesDriveBicycle\": [\r\n            \"The does drive bicycle field must be true or false.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The does drive bicycle field must be true or false.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "doesDriveBicycle",
+              "value": "true",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "doesDriveBicycle",
+              "value": "false",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "ecb8f2db-d8b2-4d45-9d2e-1a6edcfb2236",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"isConvicted\": [\r\n            \"The is convicted field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "The is convicted field is required",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "isConvicted",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "931be464-9d80-4c71-93e8-0f16b09a28fa",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"isConvicted\": [\r\n            \"The is convicted field must be true or false.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The is convicted field must be true or false",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "isConvicted",
+              "value": "true",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "isConvicted",
+              "value": "false",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "3d1db649-fdd4-4be4-9db6-38fe6a585af5",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"convictions\": [\r\n            \"The convictions field is required when is convicted is true.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The convictions field is required when is convicted is true",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "isConvicted",
+              "value": "true",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "convictions",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "e1e5c570-5890-47d3-93fb-17bac8cca85e",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"forWhat\": [\r\n            \"The for what field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The for what field is required.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "convictions.0.forWhat",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "f2d1685e-73d6-472f-b820-f05a9acc8410",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"convictionDate\": [\r\n            \"The conviction date field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "The conviction date field is required.",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "convictions.0.convictionDate",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "1ce3c729-8a59-4e90-961c-de6627042fe5",
+          "body": "{\r\n    \"message\": \"The given data was invalid.\",\r\n    \"errors\": {\r\n        \"address\": [\r\n            \"The address field is required.\"\r\n        ]\r\n    }\r\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid JSON request",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "address.addressLine1",
+              "value": "",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "a40f5ba8-5eaf-45fe-b3cf-738432878978",
+          "body": "",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Internal server error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "ee298fd5-da6f-4d66-97b9-55e8e7e40b17",
+          "body": "{\n  \"title\": \"{{oneOf (array 'Mr' 'Mrs' 'Ms' 'Miss' 'Dr')}}\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"dateOfBirth\": \"{{date '2019' (now) 'yyyy-MM-dd'}}\",\n  \"email\": \"{{faker 'internet.email'}}\",\n  \"residencyDuration\": {{faker 'datatype.number'}},\n  \"doesHaveAgricultureSkills\": {{faker 'datatype.boolean'}},\n  \"agricultureSkills\": \"{{faker 'lorem.sentences'}}\",\n  \"doesHaveMetalworkSkills\": {{faker 'datatype.boolean'}},\n  \"metalworkSkills\": \"{{faker 'lorem.sentence'}}\",\n  \"isConvicted\": {{faker 'datatype.boolean'}},\n  \"doesFlyAirplane\": {{faker 'datatype.boolean'}},\n  \"doesDriveCar\": {{faker 'datatype.boolean'}},\n  \"doesDriveBicycle\": {{faker 'datatype.boolean'}},\n  \"aid\": \"{{faker 'random.uuid'}}\",\n  \"address\": {\n    \"addressLine1\": \"{{faker 'address.streetAddress'}}\",\n    \"addressLine2\": \"\",\n    \"state\": \"{{faker 'address.state'}}\",\n    \"city\": \"{{faker 'address.city'}}\",\n    \"postalCode\": \"{{faker 'address.zipCode'}}\"\n  },\n  \"convictions\": [\n    {\n      \"forWhat\": \"{{faker 'lorem.sentence'}}\",\n      \"convictionDate\": \"{{date '2019' (now) 'yyyy-MM-dd'}}\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "Applicant created",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c2eff7b8-aeee-4cbb-90f8-ca343c33feec",
+      "documentation": "Find applicant by AID (unique Applicant Identifier)",
+      "method": "get",
+      "endpoint": "applicants/:aid",
+      "responses": [
+        {
+          "uuid": "76ae2084-e687-4002-9160-3046504fc794",
+          "body": "{\n  \"title\": \"{{oneOf (array 'Mr' 'Mrs' 'Ms' 'Miss' 'Dr')}}\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"dateOfBirth\": \"{{date '2019' (now) 'yyyy-MM-dd'}}\",\n  \"email\": \"{{faker 'internet.email'}}\",\n  \"residencyDuration\": {{faker 'datatype.number'}},\n  \"doesHaveAgricultureSkills\": {{faker 'datatype.boolean'}},\n  \"agricultureSkills\": \"{{faker 'lorem.sentences'}}\",\n  \"doesHaveMetalworkSkills\": {{faker 'datatype.boolean'}},\n  \"metalworkSkills\": \"{{faker 'lorem.sentence'}}\",\n  \"isConvicted\": {{faker 'datatype.boolean'}},\n  \"doesFlyAirplane\": {{faker 'datatype.boolean'}},\n  \"doesDriveCar\": {{faker 'datatype.boolean'}},\n  \"doesDriveBicycle\": {{faker 'datatype.boolean'}},\n  \"aid\": \"1\",\n  \"address\": {\n    \"addressLine1\": \"{{faker 'address.streetAddress'}}\",\n    \"addressLine2\": \"\",\n    \"state\": \"{{faker 'address.state'}}\",\n    \"city\": \"{{faker 'address.city'}}\",\n    \"postalCode\": \"{{faker 'address.zipCode'}}\"\n  },\n  \"convictions\": [\n    {\n      \"forWhat\": \"{{faker 'lorem.sentence'}}\",\n      \"convictionDate\": \"{{date '2019' (now) 'yyyy-MM-dd'}}\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Applicant 1 found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "aid",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "97de6efc-deca-4739-864f-e93b6889ab4e",
+          "body": "{\r\n    \"message\": \"Applicant with given aid not found\"\r\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Applicant 1 not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "aid",
+              "value": "1",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "7b641124-0e2c-46b0-95f0-d185471ed8b4",
+          "body": "{\r\n    \"message\": \"Applicant with given aid not found\"\r\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Applicant 2 not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "62d311b3-651b-4fad-b700-5e1d23614c33",
+          "body": "{\n  \"title\": \"{{oneOf (array 'Mr' 'Mrs' 'Ms' 'Miss' 'Dr')}}\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"dateOfBirth\": \"{{date '2019' (now) 'yyyy-MM-dd'}}\",\n  \"email\": \"{{faker 'internet.email'}}\",\n  \"residencyDuration\": {{faker 'datatype.number'}},\n  \"doesHaveAgricultureSkills\": {{faker 'datatype.boolean'}},\n  \"agricultureSkills\": \"{{faker 'lorem.sentences'}}\",\n  \"doesHaveMetalworkSkills\": {{faker 'datatype.boolean'}},\n  \"metalworkSkills\": \"{{faker 'lorem.sentence'}}\",\n  \"isConvicted\": {{faker 'datatype.boolean'}},\n  \"doesFlyAirplane\": {{faker 'datatype.boolean'}},\n  \"doesDriveCar\": {{faker 'datatype.boolean'}},\n  \"doesDriveBicycle\": {{faker 'datatype.boolean'}},\n  \"aid\": \"1\",\n  \"address\": {\n    \"addressLine1\": \"{{faker 'address.streetAddress'}}\",\n    \"addressLine2\": \"\",\n    \"state\": \"{{faker 'address.streetAddress'}}\",\n    \"city\": \"{{faker 'address.state'}}\",\n    \"postalCode\": \"{{faker 'address.zipCode'}}\"\n  },\n  \"convictions\": [\n    {\n      \"forWhat\": \"{{faker 'lorem.sentence'}}\",\n      \"convictionDate\": \"{{date '2019' (now) 'yyyy-MM-dd'}}\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Applicant 2 found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "aid",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c730b275-1a6c-4733-9392-84c762bbc473",
+      "documentation": "Get all states",
+      "method": "get",
+      "endpoint": "states",
+      "responses": [
+        {
+          "uuid": "2a691dad-b400-4400-bdbb-83a14ad28815",
+          "body": "[{\"tla\":\"NY\",\"name\":\"New York\"},{\"tla\":\"SC\",\"name\":\"South Carolina\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "states found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "767678bc-2ebd-4ea3-b9e6-3e569999586c",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "State not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "3221258a-1e97-465b-aaf2-8c8c347d1465",
+          "body": "",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "8f3e6b26-15dc-4412-b1f2-81099d4b752c",
+      "documentation": "Get particular state by Two Letter Abbreviation",
+      "method": "get",
+      "endpoint": "states/:tla",
+      "responses": [
+        {
+          "uuid": "3bba773d-5cb2-4dea-977b-0b10e045c28d",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Bad request",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "N",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "NY",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "SC",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "S",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "e2a44859-ef65-4bb3-8acf-0100e91c1f04",
+          "body": "{\r\n    \"message\": \"Resource not found\"\r\n}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "404 NOT FOUND EXAMPLE: Get a non existing state",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "SC",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "NY",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "N",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "S",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "dfc84f70-d64c-406e-8a94-3b1047468ef3",
+          "body": "[\r\n    {\r\n        \"tla\": \"NY\",\r\n        \"name\": \"New York\"\r\n    }\r\n]\r\n\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "New York",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "NY",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "N",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "682aa9b4-7154-4111-97af-d3ef97898266",
+          "body": "[\r\n    {\r\n        \"tla\": \"SC\",\r\n        \"name\": \"South Carolina\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "South Carolina",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "tla",
+              "value": "SC",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "tla",
+              "value": "S",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c235cf77-3441-497f-945c-edfb07a329f0",
+      "documentation": "Find all cities which belong to a state - South Carolina",
+      "method": "get",
+      "endpoint": "states/SC/cities",
+      "responses": [
+        {
+          "uuid": "2559572e-a574-43b3-a95c-e089e05dbe7e",
+          "body": "[\r\n    {\r\n        \"name\": \"Charleston\"\r\n    },\r\n     {\r\n        \"name\": \"North Myrtle Beach\"\r\n    },\r\n    {\r\n        \"name\": \"Newberry\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "31b9d5a2-e098-46fe-ae07-0ba23b0171ed",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid parameter",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "c0544bd0-9389-4a11-8aee-bb48d3df1aa0",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "State not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "8326757b-98c2-4605-9581-30bdc9c87825",
+          "body": "",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "c866f390-f7e4-427a-919e-32bf5dcf10f2",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/SC/cities/:name",
+      "responses": [
+        {
+          "uuid": "935b8432-04df-4056-820a-b3049125f58d",
+          "body": "[\r\n  {\r\n        \"name\": \"North Myrtle Beach\"\r\n    },\r\n    {\r\n        \"name\": \"Newberry\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina which have a name starting with \"N\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "N",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "9c6b7f51-da68-47a8-b330-5fc6c0a5f8f4",
+          "body": "[ {\r\n        \"name\": \"North Myrtle Beach\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in Sourth Carolina which have a name starting with 'No'",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "No",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Nor",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Nort",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "North",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "fe67d642-727d-490e-a289-27eeba8f7cfb",
+          "body": "[\r\n    {\r\n        \"name\": \"Charleston\"\r\n    },\r\n]\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in Sourth Carolina which have a name starting with \"C\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "C",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Ch",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Cha",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Char",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Charl",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Charle",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Charles",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Charlest",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Charlesto",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Charleston",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "f662c93e-3510-42e5-89ce-c40d280b902d",
+          "body": "[    \r\n{\r\n        \"name\": \"Newberry\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina which have a name starting with \"Ne\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Ne",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "New",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Newb",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Newbe",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Newber",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Newberr",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Newberry",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "5ff3db83-5d24-4479-9dff-03f7a575bf4c",
+      "documentation": "Seach all postcodes which belong to a city, which belong to a state",
+      "method": "get",
+      "endpoint": "states/SC/cities/Charleston/postalcodes",
+      "responses": [
+        {
+          "uuid": "801a294b-48e6-41bc-886d-2542b9aef8f7",
+          "body": "[\r\n    {\r\n        \"code\": \"29414\"\r\n    },\r\n    {\r\n        \"code\": \"29424\"\r\n    },\r\n    {\r\n        \"code\": \"29455\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Charleston Postalcodes found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "5a29038a-1f06-4cb7-b1d4-8835c4c67235",
+          "body": "[\r\n{\r\n        \"code\": \"29455\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29455",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "08dc7963-15d1-44ae-be60-b89de5cf10fa",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/SC/cities/Charleston/postalcodes/:number",
+      "responses": [
+        {
+          "uuid": "d3221121-d49f-43c2-ae65-d64225a6d6c2",
+          "body": "[\r\n    {\r\n        \"code\": \"29414\"\r\n    },\r\n    {\r\n        \"code\": \"29424\"\r\n    },\r\n    {\r\n        \"code\": \"29455\"\r\n    },\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Charleston which have a numberstarting with \"2\" or \"29\" or \"294\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "294",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "d4478b63-fff6-49d9-a7d5-5052dc0addcc",
+          "body": "[\r\n    {\r\n        \"code\": \"29414\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29414\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29414",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "2275f6b5-933a-4496-ba17-8865a8e5b63d",
+          "body": "[\r\n{\r\n        \"code\": \"29424\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29424\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29424",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "dde90111-dd01-4636-987c-dade9101b988",
+          "body": " [\r\n {\r\n        \"code\": \"29455\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29455\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29414",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "ea2afe0a-49d0-4ed7-b343-e0fac4c4f91a",
+      "documentation": "Seach all postcodes which belong to a city, which belong to a state",
+      "method": "get",
+      "endpoint": "states/SC/cities/North Myrtle Beach/postalcodes",
+      "responses": [
+        {
+          "uuid": "ebc5b813-08f4-4c77-a003-fab3e0144cd9",
+          "body": "[\r\n    {\r\n        \"code\": \"29582\"\r\n    },\r\n    {\r\n        \"code\": \"29568\"\r\n    },\r\n    {\r\n        \"code\": \"29566\"\r\n    },\r\n    {\r\n        \"code\": \"29597\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "North Myrtle Beach Postalcodes found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "a9d55b0e-29ef-46c0-aafb-2f067a5524fa",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid parameter",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "3b452b1d-8ccb-4391-bed9-d0fe38ced337",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "State not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "27f2982e-8acf-4c92-aa46-7d5e1d3b05d3",
+          "body": "",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "33bdf9d6-d419-4278-8197-004c65b59dbb",
+      "documentation": "Seach postalcodes",
+      "method": "get",
+      "endpoint": "states/SC/cities/North Myrtle Beach/postalcodes/:number",
+      "responses": [
+        {
+          "uuid": "baa493a9-6386-4512-8380-e263d8bd5387",
+          "body": "[\r\n    {\r\n        \"code\": \"29582\"\r\n    },\r\n    {\r\n        \"code\": \"29568\"\r\n    },\r\n    {\r\n        \"code\": \"29566\"\r\n    },\r\n    {\r\n        \"code\": \"29597\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in North Myrtle Beach which have a numberstarting with \"2\" or \"29\" or \"295\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "295",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "b964c579-f8d9-4532-8e76-493cd8d7d291",
+          "body": "",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "Invalid parameter",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "e26e433f-c897-42cf-921c-b9e051534552",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "State not found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "4c25134c-455d-4fe3-b77f-ced3585dd65a",
+          "body": "",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "Server error",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "fa0375d4-cc2b-4eaa-8e0a-ceab91e865aa",
+          "body": "[\r\n    {\r\n        \"code\": \"29582\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29582\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29582",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "549bb1ed-2510-400c-864b-be4d661e3ef6",
+          "body": "[\r\n  {\r\n        \"code\": \"29568\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29568\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29568",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "2783169a-c506-48ac-9ec9-d7d952bb004b",
+          "body": "[\r\n{\r\n        \"code\": \"29566\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29566\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "number",
+              "value": "29566",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "e7d59213-41d2-4c4f-887c-e61cee14e3fe",
+          "body": "[\r\n    {\r\n        \"code\": \"29597\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"29597\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29597",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "11633a5f-480b-4b76-9c67-4538df9c7696",
+      "documentation": "Seach all postcodes which belong to a city, which belong to a state",
+      "method": "get",
+      "endpoint": "states/SC/cities/Newberry/postalcodes",
+      "responses": [
+        {
+          "uuid": "039b3a8f-2913-49de-92d7-2251ac4fcba9",
+          "body": "[\r\n    {\r\n        \"code\": \"29108\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Newberry Postalcodes found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "407dda26-362f-4fbb-8cb3-49c6acf3e5f7",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/SC/cities/Newberry/postalcodes/:number",
+      "responses": [
+        {
+          "uuid": "652453cd-20b4-42b2-9c9d-4d3f49db3806",
+          "body": "[\r\n    {\r\n        \"code\": \"29108\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Newberry which have a numberstarting with \"2\" or \"29\" or \"291\" or \"2910\" or \"29108\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "291",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "2910",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "29108",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "3d7676f4-399d-460f-87a3-0c9cf1395e12",
+      "documentation": "Find all cities which belong to a state - New York",
+      "method": "get",
+      "endpoint": "states/NY/cities",
+      "responses": [
+        {
+          "uuid": "ac3ec5ed-49dd-45e0-b60f-66cac8da9b98",
+          "body": "[ \r\n {\r\n        \"name\": \"Brooklyn\"\r\n    },\r\n      {\r\n        \"name\": \"Bohemia\"\r\n    },\r\n    {\r\n        \"name\": \"Queens\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in New York",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "945d6772-590c-4c03-9f31-9e56b4119201",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/:name",
+      "responses": [
+        {
+          "uuid": "bb4d3fad-8f98-439b-8bc6-a02ac1c1ba7b",
+          "body": "[ \r\n {\r\n        \"name\": \"Brooklyn\"\r\n    },\r\n      {\r\n        \"name\": \"Bohemia\"\r\n    },\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina which have a name starting with \"B\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "B",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "75c34635-1ba8-4a49-8773-35ad4f7c740f",
+          "body": "[ \r\n {\r\n        \"name\": \"Brooklyn\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina which have a name starting with \"Br\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Br",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Bro",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Broo",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Brook",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Brookl",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Brookly",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Brooklyn",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "fdd69743-660d-4bc4-8301-6a8d4f55e6ff",
+          "body": " [\r\n {\r\n        \"name\": \"Bohemia\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina which have a name starting with \"Bo\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "B",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Bo",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Boh",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Bohe",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Bohem",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Bohemi",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "name",
+              "value": "Bohemia",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "ecacdc06-71f9-4998-b7a1-4672316fe8cc",
+          "body": "[\r\n{\r\n        \"name\": \"Queens\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all cities in South Carolina which have a name starting with \"Q\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "Q",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "Qu",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "Que",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "Queen",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "name",
+              "value": "Queens",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "fa2cd6e0-7b82-40c9-8b1f-cf5c3e9cc983",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/Brooklyn/postalcodes",
+      "responses": [
+        {
+          "uuid": "1b512860-5e91-43ee-97c4-f1dc9c3b1ffd",
+          "body": "[\r\n    {\r\n        \"code\": \"11212\"\r\n    },\r\n    {\r\n        \"code\": \"11213\"\r\n    },\r\n    {\r\n        \"code\": \"11230\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Brooklyn Postalcodes found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "1656d75d-7cc1-4b1c-9cc1-de9d02c7096d",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/Brooklyn/postalcodes/:number",
+      "responses": [
+        {
+          "uuid": "c7a6cbfe-ad8f-4637-bbb3-b4fdb826e893",
+          "body": "[\r\n    {\r\n        \"code\": \"11212\"\r\n    },\r\n    {\r\n        \"code\": \"11213\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Brooklyn which have a numberstarting with \"1\" or \"11\" or \"112\" or \"1121\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "number",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "number",
+              "value": "11",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "number",
+              "value": "112",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "number",
+              "value": "1121",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "ba0e6b0f-5298-44c7-ac27-e0d56c2052de",
+          "body": "[\r\n    {\r\n        \"code\": \"11212\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"11212\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "11212",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "6304fa2d-7569-4f17-a2e4-1f3fe2a2f6a1",
+          "body": "[\r\n{\r\n        \"code\": \"11213\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get postalcode \"11213\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "111213",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "45883a45-537f-4cf2-9d5e-c7394fb93e75",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/Bohemia/postalcodes",
+      "responses": [
+        {
+          "uuid": "7e82b47c-5951-4277-a1d6-9aa2953cc8c1",
+          "body": "[\r\n    {\r\n        \"code\": \"11716\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Bohemia Postalcodes found",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "cbb843e5-73af-4536-b797-4ee0b6064b46",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/Bohemia/postalcodes/:number",
+      "responses": [
+        {
+          "uuid": "c8604dce-9390-4b93-853b-be1ca4c32b8d",
+          "body": "[\r\n    {\r\n        \"code\": \"11716\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Newberry which have a numberstarting with \"1\" or 11\" or \"117\" or \"1171\" or \"11716\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "11",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "117",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "1171",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "11716",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "07237c90-01a6-4560-997e-3fe958daff3d",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/Queens/postalcodes",
+      "responses": [
+        {
+          "uuid": "9adfc772-6e82-410d-b569-bc0acfe0613c",
+          "body": "[\n {\n        \"code\": \"11355\"\n    },\n    {\n        \"code\": \"11361\"\n    },\n  {\n        \"code\": \"11433\"\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "0e73f403-8ab3-4ff2-915a-f3f1ca66911b",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "states/NY/cities/Queens/postalcodes/:number",
+      "responses": [
+        {
+          "uuid": "eb1a0a30-aed8-4a38-96a8-eba80c55bfb7",
+          "body": "[\n {\n        \"code\": \"11355\"\n    },\n    {\n        \"code\": \"11361\"\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Queens which have a numberstarting with \"1\" or \"11\" or \"113\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "11",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "113",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        },
+        {
+          "uuid": "ffc8acf0-f689-4025-92cd-3f70fc0964a5",
+          "body": "[\n {\n        \"code\": \"11355\"\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Queens which have a numberstarting with \"1135\" or \"11355\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "1135",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "",
+              "value": "11355",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "6880a61d-ef7f-45e7-a237-ec050f1d1cab",
+          "body": "[   {\n        \"code\": \"11361\"\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Queens which have a numberstarting with \"1136\" or \"11361\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "1136",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "11361",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        },
+        {
+          "uuid": "b26de237-944b-4015-bf3c-23d5a6e12428",
+          "body": "[  \n  {\n        \"code\": \"11433\"\n    }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Get all postalcodes in Queens which have a numberstarting with \"11433\"",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "params",
+              "modifier": "number",
+              "value": "11433",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
