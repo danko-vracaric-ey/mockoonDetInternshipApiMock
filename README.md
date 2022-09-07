@@ -23,3 +23,5 @@
 2. Run your mock file `$ mockoon-cli start --data ~/path/to/your-environment-file.json`
 
 - for more information visit official Mockoon documentation page `https://mockoon.com/docs/latest/about/`
+
+- As the final step replace `http://det.api.rs.ey.com` with `http://127.0.0.1:3001` inside your project and see all the routes once you load the environment by pressing Routes next to the Play button
